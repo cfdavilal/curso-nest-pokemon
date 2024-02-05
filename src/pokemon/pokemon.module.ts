@@ -1,6 +1,6 @@
-import { Module } from '@nestjs/common';
-import { PokemonService } from './pokemon.service';
-import { PokemonController } from './pokemon.controller';
+import { Module } from '@nestjs/common'
+import { PokemonService } from './pokemon.service'
+import { PokemonController } from './pokemon.controller'
 import { MongooseModule } from '@nestjs/mongoose'
 import { Pokemon, PokemonSchema } from './entities/pokemon.entity'
 
@@ -10,6 +10,7 @@ import { Pokemon, PokemonSchema } from './entities/pokemon.entity'
   imports: [MongooseModule.forFeature([{
     name: Pokemon.name,
     schema: PokemonSchema,
-  }])]
+  }])],
+  exports: [PokemonService]
 })
-export class PokemonModule {}
+export class PokemonModule { }
